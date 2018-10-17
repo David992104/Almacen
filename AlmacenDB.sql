@@ -1,5 +1,4 @@
 create database Almacen;
-
 use Almacen;
 drop table users;
 create table users(
@@ -12,7 +11,14 @@ imagenUser longblob
 );
 
 create table material(
-idMaterial int key
+idMaterial int key,
+posicionMaterial int (10),
+nombre varchar(20),
+categoria varchar(20),
+tipo varchar(20),
+descripcion varchar(100),
+enStock int(20),
+imagenMaterial longblob
 );
 
 create table salidasMaterial(
