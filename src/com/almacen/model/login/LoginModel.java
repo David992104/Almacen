@@ -6,13 +6,14 @@ import javax.swing.JOptionPane;
 
 import com.almacen.conexion.Conexion;
 
-public class LoginModel  {
+public class LoginModel {
 
     public String usuario;
     public String contrasena;
     Conexion conexion = new Conexion();
+
     public boolean IniciarSesion() {
-        boolean confirmarInicio=false;
+        boolean confirmarInicio = false;
         String consulta;
         try {
             consulta = "select passUser from users where nameUser='" + usuario + "';";
@@ -22,7 +23,7 @@ public class LoginModel  {
                 ResultSet o = conexion.setConsulta(consulta);
                 if (o.first()) {
                     confirmarInicio = true;
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "informacion erronea\n");
                 }
             } else {

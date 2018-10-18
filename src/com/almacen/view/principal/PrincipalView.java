@@ -5,19 +5,20 @@
  */
 package com.almacen.view.principal;
 
-import com.almacen.model.principal.principalModel;
+import com.almacen.model.principal.PrincipalModel;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author djoso
  */
-public class principalView extends javax.swing.JFrame {
+public class PrincipalView extends javax.swing.JFrame {
 
     /**
      * Creates new form principalView
      */
-    public principalView() {
+    public PrincipalView() {
         initComponents();
     }
 
@@ -30,16 +31,16 @@ public class principalView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
+        btbCerrarSesion = new javax.swing.JButton();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblSalidaMaterial = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblEntradaMaterial = new javax.swing.JLabel();
+        lblModificacion = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblNuevoUsuario = new javax.swing.JLabel();
         panelBusqueda = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -50,10 +51,10 @@ public class principalView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("principalView"); // NOI18N
 
-        jButton3.setText("Cerrar Sesion");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btbCerrarSesion.setText("Cerrar Sesion");
+        btbCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btbCerrarSesionActionPerformed(evt);
             }
         });
 
@@ -74,13 +75,29 @@ public class principalView extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Entrada Material");
+        lblEntradaMaterial.setText("Entrada Material");
+        lblEntradaMaterial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEntradaMaterialMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEntradaMaterialMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblEntradaMaterialMouseExited(evt);
+            }
+        });
 
-        jLabel6.setText("Modificaciones");
+        lblModificacion.setText("Modificaciones");
 
         jLabel7.setText("Historial");
 
-        jButton1.setText("jButton1");
+        lblNuevoUsuario.setText("Añadir nuevo usuario");
+        lblNuevoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNuevoUsuarioMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,13 +114,15 @@ public class principalView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
+                            .addComponent(lblEntradaMaterial)
                             .addComponent(lblSalidaMaterial)
-                            .addComponent(jLabel6)
-                            .addComponent(jButton1)))
+                            .addComponent(lblModificacion)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblNuevoUsuario)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,14 +135,14 @@ public class principalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSalidaMaterial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(lblEntradaMaterial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(16, 16, 16)
+                .addComponent(lblModificacion)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel7)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(lblNuevoUsuario)
+                .addContainerGap())
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -182,7 +201,7 @@ public class principalView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
+                    .addComponent(btbCerrarSesion)
                     .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -192,16 +211,21 @@ public class principalView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(btbCerrarSesion)
                 .addGap(8, 8, 8))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    PrincipalModel principal = new PrincipalModel();
+    private void btbCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbCerrarSesionActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Desea cerrar sesion") == 0) {
+            if (principal.cerrarSesion()) {
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_btbCerrarSesionActionPerformed
 
     private void lblSalidaMaterialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalidaMaterialMouseEntered
         lblSalidaMaterial.setForeground(Color.red);
@@ -213,12 +237,31 @@ public class principalView extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSalidaMaterialMouseExited
 
     private void lblSalidaMaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalidaMaterialMouseClicked
-        principalModel principal = new principalModel();
-        if (principal.ejecutarSalidaMat()){
+        if (principal.ejecutarSalidaMat()) {
             this.dispose();
         }
-        
     }//GEN-LAST:event_lblSalidaMaterialMouseClicked
+
+    private void lblNuevoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoUsuarioMouseClicked
+        if (principal.ejecutarNuevo()) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_lblNuevoUsuarioMouseClicked
+
+    private void lblEntradaMaterialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntradaMaterialMouseEntered
+        lblEntradaMaterial.setForeground(Color.red);
+        lblEntradaMaterial.setToolTipText("Ingresar materiales al almacen");
+    }//GEN-LAST:event_lblEntradaMaterialMouseEntered
+
+    private void lblEntradaMaterialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntradaMaterialMouseExited
+        lblEntradaMaterial.setForeground(Color.black);
+    }//GEN-LAST:event_lblEntradaMaterialMouseExited
+
+    private void lblEntradaMaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntradaMaterialMouseClicked
+        if (principal.ejecutarEntradaMat() ){
+            this.dispose();
+        }
+    }//GEN-LAST:event_lblEntradaMaterialMouseClicked
 
     /**
      * @param args the command line arguments
@@ -237,38 +280,41 @@ public class principalView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(principalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(principalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(principalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(principalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new principalView().setVisible(true);
+                new PrincipalView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btbCerrarSesion;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblEntradaMaterial;
+    private javax.swing.JLabel lblModificacion;
+    private javax.swing.JLabel lblNuevoUsuario;
     private javax.swing.JLabel lblSalidaMaterial;
     private javax.swing.JPanel panelBusqueda;
     private javax.swing.JTextField txtBusqueda;

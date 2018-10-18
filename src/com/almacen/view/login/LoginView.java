@@ -9,7 +9,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 
 import com.almacen.model.login.LoginModel;
-import com.almacen.view.principal.principalView;
+import com.almacen.view.principal.PrincipalView;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,7 +44,6 @@ public class LoginView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
         btnInicioSesion = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         barraTitulo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,8 +60,6 @@ public class LoginView extends javax.swing.JFrame {
                 btnInicioSesionActionPerformed(evt);
             }
         });
-
-        jButton2.setText("Añadir Usuario");
 
         barraTitulo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -106,13 +103,8 @@ public class LoginView extends javax.swing.JFrame {
                         .addComponent(btnInicioSesion)
                         .addGap(160, 160, 160))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(lblTitulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2)))
+                .addGap(171, 171, 171)
+                .addComponent(lblTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(barraTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -132,9 +124,7 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addComponent(btnInicioSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,7 +137,7 @@ public class LoginView extends javax.swing.JFrame {
             login.contrasena = txtContrasena.getText();
             if (login.IniciarSesion()) {
                 this.dispose();
-                principalView principal = new principalView();
+                PrincipalView principal = new PrincipalView();
                 principal.setVisible(true);
             }
         } catch (NullPointerException e) {
@@ -203,7 +193,6 @@ public class LoginView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barraTitulo;
     private javax.swing.JButton btnInicioSesion;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblTitulo;
