@@ -8,14 +8,19 @@ package com.almacen.view.login;
 import java.awt.MouseInfo;
 import java.awt.Point;
 
+import com.almacen.model.login.LoginModel;
+import com.almacen.view.principal.principalView;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author djoso
  */
 public class LoginView extends javax.swing.JFrame {
-    
+
     int x;
     int y;
+
     /**
      * Creates new form LoginView
      */
@@ -38,7 +43,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnInicioSesion = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         barraTitulo = new javax.swing.JPanel();
 
@@ -50,10 +55,10 @@ public class LoginView extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
 
-        jButton1.setText("Iniciar Sesion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInicioSesion.setText("Iniciar Sesion");
+        btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInicioSesionActionPerformed(evt);
             }
         });
 
@@ -98,7 +103,7 @@ public class LoginView extends javax.swing.JFrame {
                             .addComponent(txtUsuario))
                         .addGap(114, 114, 114))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnInicioSesion)
                         .addGap(160, 160, 160))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +131,7 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
-                .addComponent(jButton1)
+                .addComponent(btnInicioSesion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
@@ -135,12 +140,23 @@ public class LoginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
+        LoginModel login = new LoginModel();
+        try {
+            login.usuario = txtUsuario.getText();
+            login.contrasena = txtContrasena.getText();
+            if (login.IniciarSesion()) {
+                this.dispose();
+                principalView principal = new principalView();
+                principal.setVisible(true);
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_btnInicioSesionActionPerformed
 
     private void barraTituloMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraTituloMouseDragged
-         Point point = MouseInfo.getPointerInfo().getLocation();
+        Point point = MouseInfo.getPointerInfo().getLocation();
         setLocation(point.x - x, point.y - y);
     }//GEN-LAST:event_barraTituloMouseDragged
 
@@ -186,7 +202,7 @@ public class LoginView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barraTitulo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnInicioSesion;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
