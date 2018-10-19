@@ -5,7 +5,7 @@
  */
 package com.almacen.model.principal;
 
-import com.almacen.view.acciones.EntradaMaterialView;
+import com.almacen.view.acciones.NuevoMaterialView;
 import com.almacen.view.acciones.NuevoUsuarioView;
 import com.almacen.view.acciones.SalidaMaterialView;
 import com.almacen.view.login.LoginView;
@@ -56,7 +56,7 @@ public class PrincipalModel {
     public boolean ejecutarEntradaMat(){
          boolean confirm = false;
         try {
-            EntradaMaterialView entrada = new EntradaMaterialView();
+            NuevoMaterialView entrada = new NuevoMaterialView();
             entrada.setVisible(true);
             confirm = true;
         }catch(Exception e){
