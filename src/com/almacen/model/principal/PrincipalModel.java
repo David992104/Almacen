@@ -32,8 +32,8 @@ public class PrincipalModel {
     public boolean cerrarSesion(){
         boolean confirm = false;
         try {
-            LoginView login = new LoginView();
-            login.setVisible(true);
+            /*LoginView login = new LoginView();
+            login.setVisible(true);*/
             confirm = true;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "No se puede acceder");

@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.almacen.view.acciones;
 
-/**
- *
- * @author djoso
- */
+import com.almacen.conexion.Conexion;
+import com.almacen.model.acciones.SalidaMaterialModel;
+import com.almacen.view.principal.PrincipalView;
+import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 public class SalidaMaterialView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form salidaMaterialView
-     */
     public SalidaMaterialView() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -56,21 +54,49 @@ public class SalidaMaterialView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lblCerrar.setBackground(new java.awt.Color(255, 51, 51));
+        lblCerrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCerrar.setText("X");
+        lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCerrarMouseClicked(evt);
+            }
+        });
 
-        lblMinimizar.setText("_");
+        lblMinimizar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblMinimizar.setText("-");
+        lblMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMinimizarMouseClicked(evt);
+            }
+        });
 
         lblSalida.setText("Salida de Material");
+
+        lblRegresar.setText("Regresar");
+        lblRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblRegresarMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
+                .addComponent(lblRegresar)
+                .addGap(75, 75, 75)
                 .addComponent(lblSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblMinimizar)
+                .addComponent(lblMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCerrar)
                 .addContainerGap())
@@ -78,24 +104,31 @@ public class SalidaMaterialView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCerrar)
-                    .addComponent(lblMinimizar)))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblSalida)
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblMinimizar)
+                    .addComponent(lblSalida)
+                    .addComponent(lblRegresar)))
         );
-
-        lblRegresar.setText("Regresar");
 
         jLabel1.setText("Seleccione la forma de salida");
 
         rdbGrupoSeleccion.add(rdbIdMat);
         rdbIdMat.setText("ID Material");
+        rdbIdMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbIdMatActionPerformed(evt);
+            }
+        });
 
         rdbGrupoSeleccion.add(rdbNomMat);
         rdbNomMat.setText("Nombre Material");
+        rdbNomMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbNomMatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFormaSalidaLayout = new javax.swing.GroupLayout(panelFormaSalida);
         panelFormaSalida.setLayout(panelFormaSalidaLayout);
@@ -125,6 +158,8 @@ public class SalidaMaterialView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtBusquedaMat.setToolTipText("Porfavor rectifique que su \ninfromacion inscrita concerde\ncon su infromacion seleccionada");
+
         jLabel2.setText("Introdusca su");
 
         btnBuscar.setText("Buscar");
@@ -142,7 +177,18 @@ public class SalidaMaterialView extends javax.swing.JFrame {
 
         jLabel5.setText("Cantidad de salida");
 
+        txtCantidadSalida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadSalidaKeyTyped(evt);
+            }
+        });
+
         btnConfirmar.setText("Confirmar Salida");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         lblIdMaterialVacio.setText("Id_Mat");
 
@@ -215,7 +261,7 @@ public class SalidaMaterialView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelFormSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFormSalidaLayout.createSequentialGroup()
-                        .addGap(0, 36, Short.MAX_VALUE)
+                        .addGap(0, 55, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(txtBusquedaMat, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,8 +291,8 @@ public class SalidaMaterialView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panelFormaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelFormSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelFormSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelSalidaLayout.setVerticalGroup(
             panelSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,28 +312,91 @@ public class SalidaMaterialView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRegresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(lblRegresar)
-                .addGap(2, 2, 2)
+                .addGap(0, 0, 0)
                 .addComponent(panelSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Logger LOG = Logger.getLogger("com.almacen.view.acciones.SalidaMaterialView");
+    SalidaMaterialModel salidaMat = new SalidaMaterialModel();
+
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        String datos[] = new String[3];
+        if (txtBusquedaMat.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Porfavor ingresa un texto a la caja");
+        } else {
+            try {
+                salidaMat.cosaBuscar = txtBusquedaMat.getText();
+                datos = salidaMat.realizarConsulta();
+                lblIdMaterialVacio.setText(datos[0]);
+                lblNombreVacio.setText(datos[1]);
+                lblCantidadVacio.setText(datos[2]);
+            } catch (SQLException e) {
+                LOG.info("Eror " + e);
+            }
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void lblRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseEntered
+        lblRegresar.setForeground(Color.red);
+    }//GEN-LAST:event_lblRegresarMouseEntered
+
+    private void lblRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseExited
+        lblRegresar.setForeground(Color.black);
+    }//GEN-LAST:event_lblRegresarMouseExited
+
+    private void lblRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseClicked
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseas cancelar la Salida de material") == 0 && salidaMat.regresarBoton()) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_lblRegresarMouseClicked
+
+    private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
+        if (salidaMat.regresarBoton()) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_lblCerrarMouseClicked
+
+    private void lblMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizarMouseClicked
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_lblMinimizarMouseClicked
+
+    private void rdbIdMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbIdMatActionPerformed
+        salidaMat.tipoBusqueda = true;
+    }//GEN-LAST:event_rdbIdMatActionPerformed
+
+    private void rdbNomMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbNomMatActionPerformed
+        salidaMat.tipoBusqueda = false;
+    }//GEN-LAST:event_rdbNomMatActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        salidaMat.cantidadSalida = Integer.parseInt(txtCantidadSalida.getText());
+        salidaMat.cantidadStock = Integer.parseInt(lblCantidadVacio.getText());
+        if (salidaMat.comprobarDisponibilidad()) {
+            salidaMat.idMaterial = Integer.parseInt(lblIdMaterialVacio.getText());
+            if (salidaMat.realizarSalida()) {
+                btnBuscarActionPerformed(evt);
+                JOptionPane.showMessageDialog(rootPane, "Salida confirmada", "ECHO", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese una cantidad menor", "Eror", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void txtCantidadSalidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadSalidaKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCantidadSalidaKeyTyped
 
     /**
      * @param args the command line arguments
