@@ -11,4 +11,8 @@ package com.almacen.model.acciones;
  */
 public class EntradaMaterialModel {
     
+    public void regresarBoton(){
+        
+        }
+    
 }
