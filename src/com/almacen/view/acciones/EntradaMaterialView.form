@@ -83,6 +83,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="X"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCerrarMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMinimizar">
           <Properties>
@@ -98,6 +101,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRegresarMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -174,6 +180,7 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rdbIdMat">
               <Properties>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="ID Material"/>
               </Properties>
             </Component>
@@ -270,7 +277,7 @@
                                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txtCantidadSalida" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="txtCantidadEntrada" min="-2" pref="95" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -303,7 +310,7 @@
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCantidadSalida" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidadEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="50" max="32767" attributes="0"/>
                           <Component id="btnConfirmar" min="-2" max="-2" attributes="0"/>
@@ -335,12 +342,18 @@
                     <Property name="text" type="java.lang.String" value="Cantidad de entrada"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCantidadSalida">
+                <Component class="javax.swing.JTextField" name="txtCantidadEntrada">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidadEntradaKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnConfirmar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Confirmar Entrada"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmarActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblIdMaterialVacio">
                   <Properties>

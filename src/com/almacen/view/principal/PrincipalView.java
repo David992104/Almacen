@@ -41,7 +41,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblSalidaMaterial = new javax.swing.JLabel();
         lblEntradaMaterial = new javax.swing.JLabel();
         lblModificacion = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblHistorial = new javax.swing.JLabel();
         lblNuevoUsuario = new javax.swing.JLabel();
         panelBusqueda = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
@@ -86,7 +86,18 @@ public class PrincipalView extends javax.swing.JFrame {
 
         lblModificacion.setText("Modificaciones");
 
-        jLabel7.setText("Historial");
+        lblHistorial.setText("Historial");
+        lblHistorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHistorialMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHistorialMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHistorialMouseExited(evt);
+            }
+        });
 
         lblNuevoUsuario.setText("Añadir nuevo usuario");
         lblNuevoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,7 +126,7 @@ public class PrincipalView extends javax.swing.JFrame {
                             .addComponent(lblModificacion)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7))
+                        .addComponent(lblHistorial))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblNuevoUsuario)))
@@ -135,7 +146,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblModificacion)
                 .addGap(57, 57, 57)
-                .addComponent(jLabel7)
+                .addComponent(lblHistorial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(lblNuevoUsuario)
                 .addContainerGap())
@@ -288,6 +299,21 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblEntradaMaterialMouseClicked
 
+    private void lblHistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseClicked
+        if (principal.ejecutarHistorial()){
+            this.dispose();
+        }
+    }//GEN-LAST:event_lblHistorialMouseClicked
+
+    private void lblHistorialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseEntered
+        lblHistorial.setForeground(Color.red);
+        lblHistorial.setToolTipText("Muestra el historial de entradas y salidas");
+    }//GEN-LAST:event_lblHistorialMouseEntered
+
+    private void lblHistorialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseExited
+         lblHistorial.setForeground(Color.black);
+    }//GEN-LAST:event_lblHistorialMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -299,13 +325,13 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblEntradaMaterial;
+    private javax.swing.JLabel lblHistorial;
     private javax.swing.JLabel lblModificacion;
     private javax.swing.JLabel lblNuevoUsuario;
     private javax.swing.JLabel lblSalidaMaterial;

@@ -115,6 +115,7 @@ public class SalidaMaterialView extends javax.swing.JFrame {
         jLabel1.setText("Seleccione la forma de salida");
 
         rdbGrupoSeleccion.add(rdbIdMat);
+        rdbIdMat.setSelected(true);
         rdbIdMat.setText("ID Material");
         rdbIdMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,16 +379,21 @@ public class SalidaMaterialView extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbNomMatActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        salidaMat.cantidadSalida = Integer.parseInt(txtCantidadSalida.getText());
-        salidaMat.cantidadStock = Integer.parseInt(lblCantidadVacio.getText());
-        if (salidaMat.comprobarDisponibilidad()) {
-            salidaMat.idMaterial = Integer.parseInt(lblIdMaterialVacio.getText());
-            if (salidaMat.realizarSalida()) {
-                btnBuscarActionPerformed(evt);
-                JOptionPane.showMessageDialog(rootPane, "Salida confirmada", "ECHO", JOptionPane.INFORMATION_MESSAGE);
+        if (!lblIdMaterialVacio.getText().equals("Id_Mat")) {
+            salidaMat.cantidadSalida = Integer.parseInt(txtCantidadSalida.getText());
+            salidaMat.cantidadStock = Integer.parseInt(lblCantidadVacio.getText());
+            if (salidaMat.comprobarDisponibilidad()) {
+                salidaMat.idMaterial = Integer.parseInt(lblIdMaterialVacio.getText());
+                if (salidaMat.realizarSalida()) {
+                    btnBuscarActionPerformed(evt);
+                    JOptionPane.showMessageDialog(rootPane, "Salida confirmada", "ECHO", JOptionPane.INFORMATION_MESSAGE);
+                    txtCantidadSalida.setText(null);
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Ingrese una cantidad menor", "Eror", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Ingrese una cantidad menor", "Eror", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Seleccione un producto", "Eror", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 

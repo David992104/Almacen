@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.almacen.view.acciones;
 
-/**
- *
- * @author djoso
- */
+import com.almacen.model.acciones.EntradaMaterialModel;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.util.logging.Logger;
+
 public class EntradaMaterialView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EntradaMaterialView
-     */
     public EntradaMaterialView() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -47,7 +43,7 @@ public class EntradaMaterialView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        txtCantidadSalida = new javax.swing.JTextField();
+        txtCantidadEntrada = new javax.swing.JTextField();
         btnConfirmar = new javax.swing.JButton();
         lblIdMaterialVacio = new javax.swing.JLabel();
         lblNombreVacio = new javax.swing.JLabel();
@@ -56,12 +52,22 @@ public class EntradaMaterialView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblCerrar.setText("X");
+        lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCerrarMouseClicked(evt);
+            }
+        });
 
         lblMinimizar.setText("_");
 
         lblSalida.setText("Entrada material");
 
         lblRegresar.setText("Regresar");
+        lblRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegresarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,6 +100,7 @@ public class EntradaMaterialView extends javax.swing.JFrame {
 
         jLabel1.setText("Seleccione la forma de entrada");
 
+        rdbIdMat.setSelected(true);
         rdbIdMat.setText("ID Material");
 
         rdbNomMat.setText("Nombre Material");
@@ -143,7 +150,18 @@ public class EntradaMaterialView extends javax.swing.JFrame {
 
         jLabel5.setText("Cantidad de entrada");
 
+        txtCantidadEntrada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadEntradaKeyTyped(evt);
+            }
+        });
+
         btnConfirmar.setText("Confirmar Entrada");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         lblIdMaterialVacio.setText("Id_Mat");
 
@@ -178,7 +196,7 @@ public class EntradaMaterialView extends javax.swing.JFrame {
                                 .addGap(50, 50, 50)
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCantidadSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtCantidadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -202,7 +220,7 @@ public class EntradaMaterialView extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtCantidadSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCantidadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(btnConfirmar)
                 .addContainerGap())
@@ -279,9 +297,60 @@ public class EntradaMaterialView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private static Logger LOG = Logger.getLogger("com.almacen.view.acciones.EntradasMaterialView");
+    EntradaMaterialModel entradaMat = new EntradaMaterialModel();
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        String datos[] = new String[3];
+        if (txtBusquedaMat.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Porfavor ingresa un texto a la caja");
+        } else {
+            try {
+                entradaMat.cosaBuscar = txtBusquedaMat.getText();
+                datos = entradaMat.realizarConsulta();
+                lblIdMaterialVacio.setText(datos[0]);
+                lblNombreVacio.setText(datos[1]);
+                lblCantidadVacio.setText(datos[2]);
+            } catch (SQLException e) {
+                LOG.info("Eror " + e);
+            }
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void lblRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseClicked
+        if (entradaMat.regresarBoton()) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_lblRegresarMouseClicked
+
+    private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
+        if (entradaMat.salirVentana()) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_lblCerrarMouseClicked
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        if (!lblIdMaterialVacio.getText().equals("Id_Mat")) {
+            entradaMat.cantidadEntrada = Integer.parseInt(txtCantidadEntrada.getText());
+            entradaMat.cantidadStock = Integer.parseInt(lblCantidadVacio.getText());
+
+            entradaMat.idMaterial = Integer.parseInt(lblIdMaterialVacio.getText());
+            if (entradaMat.realizarEntrada()) {
+                btnBuscarActionPerformed(evt);
+                JOptionPane.showMessageDialog(rootPane, "Salida confirmada", "ECHO", JOptionPane.INFORMATION_MESSAGE);
+                txtCantidadEntrada.setText(null);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Seleccione un producto", "Eror", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void txtCantidadEntradaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadEntradaKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCantidadEntradaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -343,6 +412,6 @@ public class EntradaMaterialView extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbIdMat;
     private javax.swing.JRadioButton rdbNomMat;
     private javax.swing.JTextField txtBusquedaMat;
-    private javax.swing.JTextField txtCantidadSalida;
+    private javax.swing.JTextField txtCantidadEntrada;
     // End of variables declaration//GEN-END:variables
 }

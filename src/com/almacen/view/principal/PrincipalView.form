@@ -111,7 +111,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHistorial" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -136,7 +136,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblModificacion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHistorial" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="117" max="32767" attributes="0"/>
                           <Component id="lblNuevoUsuario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -180,10 +180,15 @@
                     <Property name="text" type="java.lang.String" value="Modificaciones"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="lblHistorial">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Historial"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblHistorialMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblHistorialMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblHistorialMouseExited"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNuevoUsuario">
                   <Properties>

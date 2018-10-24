@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
 
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,7 +22,7 @@ public class Conexion {
             String contador = "com.mysql.jdbc.Driver";
             Class.forName(contador).newInstance();
             LOG.info("Controlador activo");
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar el controlador" + e);
         }
     }
@@ -33,7 +34,7 @@ public class Conexion {
             String pasword = "root";
             conexion = DriverManager.getConnection(DSN, user, pasword);
             LOG.info("Conexion establecida");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al realizar la conexión" + e);
         }
         try {
@@ -41,8 +42,9 @@ public class Conexion {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
             LOG.info("Consulta echa");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al crear el objeto" + e);
+            LOG.log(Level.INFO, "Error al cargar el objeto{0}", e);
         }
     }
     
@@ -52,8 +54,8 @@ public class Conexion {
             conexion.close();
             LOG.info("Conexion cerrada");
             confirm = false;
-        } catch (Exception e) {
-            LOG.info("Error"+e);        
+        } catch (SQLException e) {
+            LOG.log(Level.INFO, "Error{0}", e);        
         }
         if (!confirm) {
             System.exit(0);

@@ -1,27 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.almacen.model.acciones;
 
 import com.almacen.conexion.Conexion;
 import com.almacen.view.principal.PrincipalView;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author djoso
- */
 public class SalidaMaterialModel {
 
-    Logger LOG = Logger.getLogger("com.almacen.model.acciones.SalidaMaterialModel");
+    private static final Logger LOG = Logger.getLogger("com.almacen.model.acciones.SalidaMaterialModel");
     Conexion conexion = new Conexion();
 
-    public boolean tipoBusqueda;
+    public boolean tipoBusqueda = true;
     public String cosaBuscar;
     public int cantidadStock;
     public int cantidadSalida;
@@ -45,13 +38,13 @@ public class SalidaMaterialModel {
             conexion.cerrarConexion();
             confirm = true;
         } catch (SQLException ex) {
-            LOG.info("Eroro " + ex);
+            LOG.log(Level.INFO, "Error {0}", ex);
         }
         return confirm;
     }
 
     public String seleccionarTipoBusqueda() {
-        String consulta = "";
+        String consulta;
         if (tipoBusqueda) {
             consulta = "select * from material where idMaterial = '";
         } else {
@@ -74,35 +67,52 @@ public class SalidaMaterialModel {
             } else {
                 JOptionPane.showMessageDialog(null, "Error no se encnotro nada con " + cosaBuscar, "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception e) {
-            LOG.info("Error de consulta " + e);
+        } catch (SQLException e) {
+            LOG.log(Level.INFO, "Error de consulta {0}", e);
         }
         return datos;
     }
 
     public boolean comprobarDisponibilidad() {
-        boolean confirm = true;
-        if (cantidadStock >= cantidadSalida) {
-            confirm = true;
-        } else {
-            confirm = false;
-        }
+        boolean confirm = cantidadStock >= cantidadSalida;
         return confirm;
     }
 
     public boolean realizarSalida() {
         boolean confirm = false;
-        String consulta = "";
+        String consulta;
         try {
             consulta = "update material set ";
             consulta += "enStock = '" + (cantidadStock - cantidadSalida) + "' ";
             consulta += "where idMaterial = '" + idMaterial + "';";
             conexion.setUpdate(consulta);
-            LOG.info("Cantidad modificada de material con id" + idMaterial);
+            LOG.log(Level.INFO, "Cantidad modificada de material con id{0}", idMaterial);
             confirm = true;
+            guardarSalidaHis();
         } catch (SQLException e) {
-            LOG.info("No se pudo actualizar la cantidad");
+            LOG.log(Level.INFO, "No se pudo actualizar la cantidad{0}", e);
         }
         return confirm;
+    }
+
+    public void guardarSalidaHis() {
+        Date date = new Date();
+        String fecha = (date.getYear() + 1900) + "-" + date.getMonth() + "-" + date.getDay()
+                + "-" + date.getHours() + ":" + date.getMinutes();
+        String user = "admin";
+        System.out.println(fecha);
+        String update = "Insert into salidasmaterial (`idMaterial`, `fecha`, "
+                + "`usuario`, `cantidadAnterior`, `cantidadSalida`) values (";
+        try {
+            update += "'" + idMaterial + "',";
+            update += "'" + fecha + "',";
+            update += "'" + user + "',";
+            update += "'" + cantidadStock + "',";
+            update += "'" + cantidadSalida + "');";
+            conexion.setUpdate(update);
+            LOG.info("Se añadio a historial");
+        } catch (SQLException e) {
+            LOG.log(Level.INFO, "No se puedo estraer infromacion", e);
+        }
     }
 }
