@@ -57,3 +57,5 @@ idCategoria int (10),
 nombreTipo varchar (20),
 descripcion varchar (100)
 );
+
+select * from salidasmaterial order by fecha desc
