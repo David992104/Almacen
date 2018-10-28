@@ -40,6 +40,7 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
         panelSalida = new javax.swing.JPanel();
         panelFormaSalida = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         rdbIdMat = new javax.swing.JRadioButton();
         rdbNomMat = new javax.swing.JRadioButton();
         panelFormSalida = new javax.swing.JPanel();
@@ -75,6 +76,10 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(50, 88, 255));
+        jPanel1.setForeground(new java.awt.Color(50, 88, 255));
+
+        lblCerrar.setForeground(new java.awt.Color(255, 255, 255));
         lblCerrar.setText("X");
         lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -88,6 +93,7 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
             }
         });
 
+        lblMinimizar.setForeground(new java.awt.Color(255, 255, 255));
         lblMinimizar.setText("_");
         lblMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -95,8 +101,12 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
             }
         });
 
+        lblSalida.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblSalida.setForeground(new java.awt.Color(255, 255, 255));
         lblSalida.setText("Salida de Material");
 
+        lblRegresar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblRegresar.setForeground(new java.awt.Color(255, 255, 255));
         lblRegresar.setText("Regresar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -106,7 +116,11 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblRegresar)
+<<<<<<< HEAD
                 .addGap(43, 43, 43)
+=======
+                .addGap(150, 150, 150)
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
                 .addComponent(lblSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblMinimizar)
@@ -117,23 +131,55 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCerrar)
-                    .addComponent(lblMinimizar)))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSalida)
                     .addComponent(lblRegresar))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCerrar))
+            .addComponent(lblMinimizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        panelSalida.setBackground(new java.awt.Color(255, 255, 255));
+        panelSalida.setForeground(new java.awt.Color(255, 255, 255));
+
+        panelFormaSalida.setBackground(new java.awt.Color(50, 88, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione la forma de salida");
 
+<<<<<<< HEAD
         rdbIdMat.setSelected(true);
+=======
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
         rdbIdMat.setText("ID Material");
 
         rdbNomMat.setText("Nombre Material");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rdbNomMat)
+                    .addComponent(rdbIdMat))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(rdbIdMat)
+                .addGap(26, 26, 26)
+                .addComponent(rdbNomMat)
+                .addContainerGap(263, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelFormaSalidaLayout = new javax.swing.GroupLayout(panelFormaSalida);
         panelFormaSalida.setLayout(panelFormaSalidaLayout);
@@ -143,54 +189,100 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
                 .addGroup(panelFormaSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFormaSalidaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(panelFormaSalidaLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(panelFormaSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rdbNomMat)
-                            .addComponent(rdbIdMat))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFormaSalidaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelFormaSalidaLayout.setVerticalGroup(
             panelFormaSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFormaSalidaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(rdbIdMat)
-                .addGap(18, 18, 18)
-                .addComponent(rdbNomMat)
+                .addGap(41, 41, 41)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelFormSalida.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 12)); // NOI18N
         jLabel2.setText("Introdusca su");
 
+<<<<<<< HEAD
+=======
+        btnBuscar.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(50, 88, 255));
+
+        lblNomMat.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 12)); // NOI18N
+        lblNomMat.setForeground(new java.awt.Color(255, 255, 255));
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
         lblNomMat.setText("Material");
 
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Categoria");
 
+        jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ID Material");
 
+        btnConfirmar.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 12)); // NOI18N
         btnConfirmar.setText("Confirmar Salida");
 
         lblIdMaterialVacio.setText("Id_Mat");
 
+        jLabel6.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Posicion");
 
+<<<<<<< HEAD
+=======
+        jTextField1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 12)); // NOI18N
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel5.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
         jLabel5.setText("Tipo");
 
+        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Descripcion");
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtDescripcion);
 
+<<<<<<< HEAD
         jLabel8.setText("Maxima cantidad");
         jLabel8.setToolTipText("Es la cantidad maxima que se puede tener en almacen");
 
         jLabel9.setText("Minima cantidad");
         jLabel9.setToolTipText("Cantidad minima que puede haber en almacen");
+=======
+        jLabel8.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Maxima cantidad:");
 
+        jLabel9.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Minima cantidad:");
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Imagen");
 
         lblImagen.setText("...");
@@ -199,12 +291,15 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
 
         jLabel13.setText("Cantidad actual");
 
+<<<<<<< HEAD
         lblCantidadVacio.setText("Cantidad");
 
         jLabel11.setText("Añadir Categoria");
 
         jLabel12.setText("Añadir Tipo");
 
+=======
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -222,6 +317,7 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
+<<<<<<< HEAD
                             .addComponent(jLabel7)
                             .addComponent(jLabel13)
                             .addComponent(jLabel9)
@@ -249,6 +345,31 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtMaxCantidad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                                 .addComponent(txtCantidadMinima, javax.swing.GroupLayout.Alignment.LEADING)))
+=======
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblIdMaterialVacio)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel12))
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jTextField3)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -281,6 +402,7 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -290,6 +412,17 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(txtMaxCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtCantidadMinima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -310,29 +443,36 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
         panelFormSalidaLayout.setHorizontalGroup(
             panelFormSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFormSalidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelFormSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFormSalidaLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panelFormSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelFormSalidaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelFormSalidaLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtBusquedaMat, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> 58bedda586a107dbc7818155fe373b1198bd7289
                 .addContainerGap())
         );
         panelFormSalidaLayout.setVerticalGroup(
             panelFormSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFormSalidaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addGroup(panelFormSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusquedaMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
+                    .addComponent(txtBusquedaMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout panelSalidaLayout = new javax.swing.GroupLayout(panelSalida);
@@ -369,7 +509,7 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -417,6 +557,7 @@ public class ModificacionMaterialView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBuscarImagen;
     private javax.swing.JLabel lblCantidadVacio;
