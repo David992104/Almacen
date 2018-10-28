@@ -48,7 +48,7 @@ public class Conexion {
         }
     }
     
-    public boolean cerrarConexion(){
+    public boolean cerrarConexion() throws SQLException {
         boolean confirm = false;
         try {
             conexion.close();
