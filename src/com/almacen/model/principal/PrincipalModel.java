@@ -5,9 +5,11 @@
  */
 package com.almacen.model.principal;
 
+import com.almacen.view.acciones.EntradaMaterialView;
 import com.almacen.view.acciones.NuevoMaterialView;
 import com.almacen.view.acciones.NuevoUsuarioView;
 import com.almacen.view.acciones.SalidaMaterialView;
+import com.almacen.view.historial.MostrarHistorialView;
 import com.almacen.view.login.LoginView;
 import javax.swing.JOptionPane;
 
@@ -32,8 +34,8 @@ public class PrincipalModel {
     public boolean cerrarSesion(){
         boolean confirm = false;
         try {
-            LoginView login = new LoginView();
-            login.setVisible(true);
+            /*LoginView login = new LoginView();
+            login.setVisible(true);*/
             confirm = true;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "No se puede acceder");
@@ -56,8 +58,20 @@ public class PrincipalModel {
     public boolean ejecutarEntradaMat(){
          boolean confirm = false;
         try {
-            NuevoMaterialView entrada = new NuevoMaterialView();
+            EntradaMaterialView entrada = new EntradaMaterialView();
             entrada.setVisible(true);
+            confirm = true;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede acceder");
+        }
+        return confirm;
+    }
+    
+    public boolean ejecutarHistorial(){
+        boolean confirm = false;
+        try{
+            MostrarHistorialView historial = new MostrarHistorialView();
+            historial.setVisible(true);
             confirm = true;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "No se puede acceder");

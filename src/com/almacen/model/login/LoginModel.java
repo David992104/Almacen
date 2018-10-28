@@ -17,10 +17,10 @@ public class LoginModel {
         String consulta;
         try {
             consulta = "select passUser from users where nameUser='" + usuario + "';";
-            ResultSet r = conexion.setConsulta(consulta);
+            ResultSet r = conexion.setQuery(consulta);
             if (r.first()) {
                 consulta = "select nameUser from users where passUser='" + contrasena + "';";
-                ResultSet o = conexion.setConsulta(consulta);
+                ResultSet o = conexion.setQuery(consulta);
                 if (o.first()) {
                     confirmarInicio = true;
                 } else {

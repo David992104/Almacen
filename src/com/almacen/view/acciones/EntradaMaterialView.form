@@ -84,6 +84,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="X"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCerrarMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMinimizar">
           <Properties>
@@ -120,6 +123,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRegresarMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -202,7 +208,29 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
+<<<<<<< HEAD
             <Container class="javax.swing.JPanel" name="jPanel3">
+=======
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Seleccione la forma de entrada"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rdbIdMat">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="ID Material"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rdbNomMat">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre Material"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panelFormSalida">
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -251,6 +279,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel2" max="32767" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -259,6 +288,32 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnBuscar" min="-2" pref="69" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+=======
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblNomMat" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblIdMaterialVacio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblNombreVacio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblCantidadVacio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtCantidadEntrada" min="-2" pref="95" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -274,8 +329,25 @@
                               <Component id="txtBusquedaMat" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="jPanel2" max="32767" attributes="0"/>
+=======
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCantidadVacio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidadEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                          <Component id="btnConfirmar" min="-2" max="-2" attributes="0"/>
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -292,12 +364,41 @@
                     <Property name="text" type="java.lang.String" value="Introdusca su"/>
                   </Properties>
                 </Component>
+<<<<<<< HEAD
                 <Component class="javax.swing.JButton" name="btnBuscar">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft YaHei UI Light" size="12" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Buscar"/>
+=======
+                <Component class="javax.swing.JTextField" name="txtCantidadEntrada">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidadEntradaKeyTyped"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnConfirmar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Confirmar Entrada"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmarActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblIdMaterialVacio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Id_Mat"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNombreVacio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="name_Mat"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCantidadVacio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="cantidad_Mat"/>
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>

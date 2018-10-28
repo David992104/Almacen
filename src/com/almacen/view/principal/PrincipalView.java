@@ -21,6 +21,7 @@ public class PrincipalView extends javax.swing.JFrame {
     public PrincipalView() {
         this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,10 +40,15 @@ public class PrincipalView extends javax.swing.JFrame {
         lblSalidaMaterial = new javax.swing.JLabel();
         lblEntradaMaterial = new javax.swing.JLabel();
         lblModificacion = new javax.swing.JLabel();
+<<<<<<< HEAD
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+=======
+        lblHistorial = new javax.swing.JLabel();
+        lblNuevoUsuario = new javax.swing.JLabel();
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
         panelBusqueda = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -95,15 +101,78 @@ public class PrincipalView extends javax.swing.JFrame {
         lblModificacion.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 14)); // NOI18N
         lblModificacion.setText("Modificaciones");
 
+<<<<<<< HEAD
         jLabel7.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 14)); // NOI18N
         jLabel7.setText("Historial");
+=======
+        lblHistorial.setText("Historial");
+        lblHistorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHistorialMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHistorialMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHistorialMouseExited(evt);
+            }
+        });
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
 
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 14)); // NOI18N
         jLabel4.setText("Agregar usuario.");
 
+<<<<<<< HEAD
         jLabel5.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 14)); // NOI18N
         jLabel5.setText("Modificar usuario.");
         jLabel5.setDoubleBuffered(true);
+=======
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEntradaMaterial)
+                            .addComponent(lblSalidaMaterial)
+                            .addComponent(lblModificacion)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblHistorial))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblNuevoUsuario)))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(112, 112, 112)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSalidaMaterial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblEntradaMaterial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblModificacion)
+                .addGap(57, 57, 57)
+                .addComponent(lblHistorial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(lblNuevoUsuario)
+                .addContainerGap())
+        );
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
 
         panelBusqueda.setBackground(new java.awt.Color(50, 88, 255));
 
@@ -291,6 +360,7 @@ public class PrincipalView extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(rootPane, "Desea cerrar sesion") == 0) {
             if (principal.cerrarSesion()) {
                 this.dispose();
+                System.exit(0);
             }
         }
     }//GEN-LAST:event_btbCerrarSesionActionPerformed
@@ -310,6 +380,7 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblEntradaMaterialMouseClicked
 
+<<<<<<< HEAD
     private void lblSalidaMaterialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalidaMaterialMouseExited
         lblSalidaMaterial.setForeground(Color.BLACK);
     }//GEN-LAST:event_lblSalidaMaterialMouseExited
@@ -324,44 +395,27 @@ public class PrincipalView extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_lblSalidaMaterialMouseClicked
+=======
+    private void lblHistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseClicked
+        if (principal.ejecutarHistorial()){
+            this.dispose();
+        }
+    }//GEN-LAST:event_lblHistorialMouseClicked
+
+    private void lblHistorialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseEntered
+        lblHistorial.setForeground(Color.red);
+        lblHistorial.setToolTipText("Muestra el historial de entradas y salidas");
+    }//GEN-LAST:event_lblHistorialMouseEntered
+
+    private void lblHistorialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseExited
+         lblHistorial.setForeground(Color.black);
+    }//GEN-LAST:event_lblHistorialMouseExited
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrincipalView().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbCerrarSesion;
@@ -369,9 +423,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+=======
+>>>>>>> 2f2a1ad25cda6975e15d69c5e15955983a5dd0a2
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -381,6 +438,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblEntradaMaterial;
+    private javax.swing.JLabel lblHistorial;
     private javax.swing.JLabel lblModificacion;
     private javax.swing.JLabel lblSalidaMaterial;
     private javax.swing.JPanel panelBusqueda;
